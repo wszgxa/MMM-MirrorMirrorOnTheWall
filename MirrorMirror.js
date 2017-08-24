@@ -9,6 +9,7 @@ app.TOPIC_VIDEO = "MagicMirror:new-video"
 app.TOPIC_FAIREST = "MagicMirror:fairest-image"
 app.TOPIC_SCORE = "MagicMirror:dress-score"
 app.TOPIC_SHOP = "MagicMirror:dress-shop"
+app.TOPIC_WEATHER = "MagicMirror:weather_forecast"
 
 // Setup our AWS IoT device and receive messages
 app.setup = function() {
@@ -42,12 +43,14 @@ app.setup = function() {
 
     app.device.subscribe(app.TOPIC_VIDEO);
     console.log("Subscribed: " + app.TOPIC_VIDEO);
-    
+
     app.device.subscribe(app.TOPIC_SCORE);
     console.log("Subscribed: " + app.TOPIC_SCORE);
 
     app.device.subscribe(app.TOPIC_SHOP);
     console.log("Subscribed: " + app.TOPIC_SHOP);
+    app.device.subscribe(app.TOPIC_WEATHER);
+    console.log("Subscribed: " + app.TOPIC_WEATHER);
   });
 
   // Listeners

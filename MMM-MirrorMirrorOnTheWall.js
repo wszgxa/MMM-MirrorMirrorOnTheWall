@@ -113,6 +113,14 @@ Module.register('MMM-MirrorMirrorOnTheWall', {
         row.appendChild(div)
         wrapper.appendChild(row)
       }
+      if (this.result.shop) {
+        var videoWrapper = document.createElement("div")
+        videoWrapper.className = "shopWrapper"
+        var iframe = document.createElement('iframe')
+        iframe.src = this.result.shop.url
+        videoWrapper.appendChild(iframe)
+        wrapper.appendChild(videoWrapper)
+      }
       if (this.result.fairest) {
         var resultArray = [{
           url: "http://7xlcyv.com1.z0.glb.clouddn.com/WechatIMG56.jpeg",
