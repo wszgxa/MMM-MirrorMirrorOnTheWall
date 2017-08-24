@@ -34,6 +34,12 @@ Module.register('MMM-MirrorMirrorOnTheWall', {
       this.show(1000, function() {
         Log.log(this.name + ' is shown.');
       });
+    } else if(notification === "SCORE") {
+      this.result = payload
+      this.updateDom()
+      this.show(1000, function() {
+        Log.log(this.name + ' is shown.');
+      });
     } else if (notification === "MODULE") {
       let self = this
       MM.getModules().enumerate(function(module) {
@@ -75,7 +81,6 @@ Module.register('MMM-MirrorMirrorOnTheWall', {
         }
         wrapper.appendChild(row)
       }
-
       if (this.result.videoId) {
         var videoWrapper = document.createElement("div")
         videoWrapper.className = "videoWrapper"
@@ -92,7 +97,22 @@ Module.register('MMM-MirrorMirrorOnTheWall', {
         h1.appendChild(t)
         wrapper.appendChild(h1)
       }
+      if (this.result.score) {
+        var row = document.createElement('div')
+        row.className = "score"
 
+        var h1 = document.createElement('h1')
+        h1.className = "animated fadeIn"
+
+        h1.appendChild(document.createTextNode(this.result.score.score))
+        var div = document.createElement('div')
+        div.className = "score-word"
+        div.appendChild(document.createTextNode(this.result.score.displayText))
+
+        row.appendChild(h1)
+        row.appendChild(div)
+        wrapper.appendChild(row)
+      }
       if (this.result.fairest) {
         var resultArray = [{
           url: "http://7xlcyv.com1.z0.glb.clouddn.com/WechatIMG56.jpeg",
