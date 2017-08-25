@@ -19,7 +19,10 @@ module.exports = NodeHelper.create({
         || topic === MirrorMirror.TOPIC_VIDEO
         || topic === MirrorMirror.TOPIC_FAIREST
         || topic === MirrorMirror.TOPIC_SHOP
-        || topic === MirrorMirror.TOPIC_SCORE) {
+        || topic === MirrorMirror.TOPIC_SCORE
+        || topic === MirrorMirror.TOPIC_SINGLE_IMAGE
+        || topic === MirrorMirror.TOPIC_MOVIE_SMARTER
+        || topic === MirrorMirror.TOPIC_LISTING_SEARCH_RESULTS) {
         self.sendSocketNotification("RESULT", payload);
       } else if (topic === MirrorMirror.TOPIC_MODULE) {
         let moduleName = payload.moduleName

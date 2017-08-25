@@ -116,10 +116,32 @@ Module.register('MMM-MirrorMirrorOnTheWall', {
       if (this.result.shop) {
         var videoWrapper = document.createElement("div")
         videoWrapper.className = "shopWrapper"
-        var iframe = document.createElement('iframe')
+        var iframe = document.createElement("iframe")
         iframe.src = this.result.shop.url
+        iframe.width = "800px"
+        iframe.height = "900px"
         videoWrapper.appendChild(iframe)
         wrapper.appendChild(videoWrapper)
+      }
+      if (this.result.search) {
+        var videoWrapper = document.createElement("div")
+        videoWrapper.className = "shopWrapper"
+        var iframe = document.createElement("iframe")
+        iframe.width = "800px"
+        iframe.height = "900px"
+        iframe.src = this.result.search.url
+        videoWrapper.appendChild(iframe)
+        wrapper.appendChild(videoWrapper)
+      }
+      if (this.result.image) {
+        var div = document.createElement("div")
+        div.className = "user"
+
+        var img = document.createElement("img")
+        img.src = this.result.image.url
+        div.appendChild(img)
+        img.className = "animated fadeIn"
+        wrapper.appendChild(div)
       }
       if (this.result.fairest) {
         var resultArray = [{
@@ -128,11 +150,8 @@ Module.register('MMM-MirrorMirrorOnTheWall', {
         }, {
           url: "http://7xlcyv.com1.z0.glb.clouddn.com/picture.png",
           text: "The fairest man: Bo"
-        }, {
-          url: "http://7xlcyv.com1.z0.glb.clouddn.com/timg.jpeg",
-          text: "The fairest girl: Uncle Sun"
         }]
-        var random = (parseInt(Math.random()*10))%3;
+        var random = (parseInt(Math.random()*10))%2;
         var div = document.createElement("div")
         div.className = "user"
 

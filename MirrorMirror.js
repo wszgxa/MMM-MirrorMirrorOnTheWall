@@ -10,6 +10,9 @@ app.TOPIC_FAIREST = "MagicMirror:fairest-image"
 app.TOPIC_SCORE = "MagicMirror:dress-score"
 app.TOPIC_SHOP = "MagicMirror:dress-shop"
 app.TOPIC_WEATHER = "MagicMirror:weather_forecast"
+app.TOPIC_SINGLE_IMAGE = "MagicMirror:single_image"
+app.TOPIC_MOVIE_SMARTER = "MagicMirror:movie_smarter"
+app.TOPIC_LISTING_SEARCH_RESULTS= "MagicMirror:listing_search_results"
 
 // Setup our AWS IoT device and receive messages
 app.setup = function() {
@@ -51,6 +54,15 @@ app.setup = function() {
     console.log("Subscribed: " + app.TOPIC_SHOP);
     app.device.subscribe(app.TOPIC_WEATHER);
     console.log("Subscribed: " + app.TOPIC_WEATHER);
+
+    app.device.subscribe(app.TOPIC_LISTING_SEARCH_RESULTS);
+    console.log("Subscribed: " + app.TOPIC_LISTING_SEARCH_RESULTS);
+
+    app.device.subscribe(app.TOPIC_MOVIE_SMARTER);
+    console.log("Subscribed: " + app.TOPIC_MOVIE_SMARTER);
+
+    app.device.subscribe(app.TOPIC_SINGLE_IMAGE);
+    console.log("Subscribed: " + app.TOPIC_SINGLE_IMAGE);
   });
 
   // Listeners
